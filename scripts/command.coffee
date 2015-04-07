@@ -11,10 +11,10 @@ module.exports = (robot) ->
  （＿フ彡            / ←>>1
 '''
 
-  robot.respond /出社/, (res) ->
+  robot.respond /.*出社.*/, (res) ->
     res.send "おはようございます:heart:"
 
-  robot.respond /帰/, (res) ->
+  robot.respond /.*帰.*/, (res) ->
     res.send "さようなら:heart:"
 
   robot.hear /ゆかりん/, (msg) ->
