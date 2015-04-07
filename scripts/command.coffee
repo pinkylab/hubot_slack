@@ -16,3 +16,6 @@ module.exports = (robot) ->
 
   robot.respond /帰/, (res) ->
     res.send "さようなら:heart:"
+
+  robot.hear /ゆかりん/, (msg) ->
+    msg.send "なぁに？"
