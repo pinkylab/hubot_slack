@@ -44,6 +44,10 @@ module.exports = (robot) ->
     KEY_DOCOMO_CONTEXT = 'docomo-talk-context'
     context = robot.brain.get KEY_DOCOMO_CONTEXT || ''
 
+    ## mode読み込む。前回しりとりだったらしりとりにする
+    KEY_DOCOMO_MODE = 'docomo-talk-mode'
+    mode = robot.brain.get KEY_DOCOMO_MODE || ''
+
     ## 前回会話してからの経過時間調べる
     KEY_DOCOMO_CONTEXT_TTL = 'docomo-talk-context-ttl'
     TTL_MINUTES = 20
@@ -64,11 +68,14 @@ module.exports = (robot) ->
         utt: message
         nickname: user_name if user_name
         context: context if context
-        mode: 'srtr'
+        mode: mode if mode
         t: 30
       , (err, response, body) ->
         ## ContextIDの保存
         robot.brain.set KEY_DOCOMO_CONTEXT, body.context
+
+        ## ContextIDの保存
+        robot.brain.set KEY_DOCOMO_MODE, body.mode
 
         ## 会話発生時間の保存
         now_msec = new Date().getTime()
