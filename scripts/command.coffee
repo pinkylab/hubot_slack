@@ -64,6 +64,7 @@ module.exports = (robot) ->
         utt: message
         nickname: user_name if user_name
         context: context if context
+        mode: 'srtr'
         t: 30
       , (err, response, body) ->
         ## ContextIDの保存
