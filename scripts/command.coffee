@@ -52,7 +52,7 @@ module.exports = (robot) ->
 
     ## 前回会話してから一定時間経っていたらコンテキストを破棄
     if diff_minutes > TTL_MINUTES
-	  context = ''
+      context = ''
 
     url = 'https://api.apigw.smt.docomo.ne.jp/dialogue/v1/dialogue?APIKEY=' + DOCOMO_API_KEY
     user_name = msg.message.user.name
