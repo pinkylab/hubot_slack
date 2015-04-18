@@ -74,7 +74,7 @@ module.exports = (robot) ->
         ## ContextIDの保存
         robot.brain.set KEY_DOCOMO_CONTEXT, body.context
 
-        ## ContextIDの保存
+        ## modeの保存
         robot.brain.set KEY_DOCOMO_MODE, body.mode
 
         ## 会話発生時間の保存
